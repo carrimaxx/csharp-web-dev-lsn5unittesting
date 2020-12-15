@@ -18,24 +18,33 @@ namespace CarTests
         [TestMethod]
         public void TestInitialGasTank()
         {
-            
-            Assert.AreEqual(10, test_car.GasTankLevel, .001);
+            var expected = 10;
+            var actual = test_car.GasTankLevel;
 
+            Assert.AreEqual(expected, actual, .001);
             Assert.IsFalse(test_car.GasTankLevel == 0);
         }
 
         [TestMethod]
         public void TestGasTankAfterDriving()
         {
+            var expected = 9;
+            var actual = test_car.GasTankLevel;
+
             test_car.Drive(50);
-            Assert.AreEqual(9, test_car.GasTankLevel, .001);
+
+            Assert.AreEqual(expected, actual, .001);
         }
 
         [TestMethod]
         public void TestGasTankAfterExceedingTankRange()
         {
+            var expected = 0;
+            var actual = test_car.GasTankLevel;
+
             test_car.Drive(500);
-            Assert.AreEqual(0, test_car.GasTankLevel, .001);
+
+            Assert.AreEqual(expected, actual, .001);
         }
 
         [TestMethod]
@@ -43,6 +52,7 @@ namespace CarTests
         public void TestGasOverfillException()
         {
             test_car.AddGas(5);
+
             Assert.Fail("Shouldn't get here, car cannot have more gas in tank than the size of the tank");
         }
     }
