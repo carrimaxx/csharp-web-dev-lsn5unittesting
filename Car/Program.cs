@@ -13,11 +13,6 @@ namespace CarNS
             Console.WriteLine(car.GasTankLevel);
             car.Drive(450);
             Console.WriteLine(car.GasTankLevel);
-            
-            car.Drive(750);
-            Console.WriteLine(car.GasTankLevel);
-           
-            
         }
     }
 }
